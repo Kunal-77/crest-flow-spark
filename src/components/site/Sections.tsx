@@ -229,7 +229,7 @@ const testimonials = [
 
 export function Testimonials() {
   const [active, setActive] = useState(0);
-  const t = testimonials[active];
+  const t = testimonials[active]!;
 
   return (
     <section id="testimonials" className="border-y border-border bg-surface/30 py-28">
