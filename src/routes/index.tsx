@@ -1,24 +1,60 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Nav } from "@/components/site/Nav";
+import { Hero } from "@/components/site/Hero";
+import { Marquee } from "@/components/site/Marquee";
+import {
+  Mission,
+  ChapterIndex,
+  WhenToStart,
+  Services,
+  Testimonials,
+  Attestations,
+  Methodology,
+  Facts,
+  Faq,
+  Cta,
+  Footer,
+} from "@/components/site/Sections";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "CyberCrest | Expert-Led Cybersecurity Compliance Services" },
+      {
+        name: "description",
+        content:
+          "CyberCrest is your assessment and advisory partner for SOC 2, ISO 27001, CMMC, PCI DSS and more — certifications, remediation and ongoing compliance.",
+      },
+      { property: "og:title", content: "CyberCrest | Cybersecurity Compliance Services" },
+      {
+        property: "og:description",
+        content:
+          "Achieve certifications and reduce risk with expert-led cybersecurity compliance assessments, remediation and maintenance.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="min-h-screen overflow-x-hidden bg-background">
+      <Nav />
+      <Hero />
+      <Marquee />
+      <Mission />
+      <ChapterIndex />
+      <WhenToStart />
+      <Services />
+      <Testimonials />
+      <Attestations />
+      <Methodology />
+      <Facts />
+      <Faq />
+      <Cta />
+      <Footer />
+    </main>
   );
 }
